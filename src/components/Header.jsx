@@ -1,4 +1,4 @@
-export default function Header({ user, theme, setTheme }) {
+export default function Header() {
     const handleCheckChange = () => {
       if(theme === 'dark') {
         setTheme('light');
