@@ -1,18 +1,15 @@
 import { useContext, useState } from 'react'
 import imgDoge from '../assets/images/doge.jpg'
-import AppContext from '../AppContext';
-import { useContext, useState } from 'react';
-import imgDoge from '../assets/images/doge.jpg';
-import AppContext from '../AppContext';
 
-export default function CreateTweet() {
-    const { tweets, setTweets, theme } = useContext(AppContext);
+
+
+export default function CreateTweet({ tweets, setTweets, user, theme }) {
+
     const [content, setContent] = useState('');
 
     const addTweet = (e) => {
         e.preventDefault();
-        // Assuming `user` is also available in the context
-        const user = { /* Retrieve or access user data from context */ };
+        
         
         setTweets([
             {

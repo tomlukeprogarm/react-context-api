@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Tweets from './components/Tweets';
 import RightSide from './components/RightSide';
 import defaultTweets from './assets/data/tweets.js';
+import user from './assets/data/user.js'
 
 const AppContext = createContext();
 
@@ -12,12 +13,20 @@ function App() {
 
     useEffect(() => {
         theme === 'light'
-          ? document.body.style.backgroundColor = 'white'
-          : document.body.style.backgroundColor = 'black';
+            ? document.body.style.backgroundColor = 'white'
+            : document.body.style.backgroundColor = 'black';
     }, [theme]);
 
     return (
-        <AppContext.Provider value={{ tweets, setTweets, theme, setTheme }}>
+        <AppContext.Provider
+            value={{
+                user: user,
+                tweets: tweets,
+                setTweets: setTweets,
+                theme: theme,
+                setTheme: setTheme
+            }}
+        >
             <div className="container">
                 <Header />
                 <Tweets />
@@ -27,4 +36,4 @@ function App() {
     );
 }
 
-export { App };
+export { App, AppContext };
