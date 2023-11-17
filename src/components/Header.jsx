@@ -1,15 +1,15 @@
+import AppContext from '../AppContext';
+import { useContext } from 'react';
+
+import React, { useContext } from 'react';
+import AppContext from '../AppContext'; // Import the context
+
 export default function Header() {
-    const handleCheckChange = () => {
-      if(theme === 'dark') {
-        setTheme('light');
-      } else {
-        setTheme('dark');
-      }
-    }
+    const { theme, setTheme, user } = useContext(AppContext); // Access theme, setTheme, and user from context
 
     const handleButtonClick = () => {
-      console.log("CLICK!");
-    }
+        console.log("CLICK!");
+    };
 
     return (
         <header className={theme}>

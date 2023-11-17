@@ -1,11 +1,19 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import imgDoge from '../assets/images/doge.jpg'
+import AppContext from '../AppContext';
+import { useContext, useState } from 'react';
+import imgDoge from '../assets/images/doge.jpg';
+import AppContext from '../AppContext';
 
 export default function CreateTweet() {
-    const [content, setContent] = useState('')
+    const { tweets, setTweets, theme } = useContext(AppContext);
+    const [content, setContent] = useState('');
 
     const addTweet = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        // Assuming `user` is also available in the context
+        const user = { /* Retrieve or access user data from context */ };
+        
         setTweets([
             {
                 ...user,
@@ -17,8 +25,8 @@ export default function CreateTweet() {
                 analyticsCount: 0
             },
             ...tweets
-        ])
-    }
+        ]);
+    };
 
     return (
         <div className={theme === 'dark' ? 'create-tweet dark' : 'create-tweet'}>
@@ -53,4 +61,5 @@ export default function CreateTweet() {
             </form>
         </div>
     )
-}
+
+    }
